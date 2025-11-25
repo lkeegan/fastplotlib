@@ -34,6 +34,7 @@ class GraphicMethodsMixin:
         interpolation: str = "nearest",
         cmap_interpolation: str = "linear",
         isolated_buffer: bool = True,
+        cmap_alpha: float = 1.0,
         **kwargs,
     ) -> ImageGraphic:
         """
@@ -68,6 +69,9 @@ class GraphicMethodsMixin:
             If False, the input array is itself used as the buffer - useful if the
             array is large.
 
+        cmap_alpha: float, default 1.0
+            alpha value to use for the colormap texture
+
         kwargs:
             additional keyword arguments passed to :class:`.Graphic`
 
@@ -82,6 +86,7 @@ class GraphicMethodsMixin:
             interpolation,
             cmap_interpolation,
             isolated_buffer,
+            cmap_alpha,
             **kwargs,
         )
 

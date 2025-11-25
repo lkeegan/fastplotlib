@@ -232,9 +232,9 @@ class ImageCmap(GraphicFeature):
         },
     ]
 
-    def __init__(self, value: str, property_name: str = "cmap"):
+    def __init__(self, value: str, property_name: str = "cmap", alpha: float = 1.0):
         self._value = value
-        self.texture = get_cmap_texture(value)
+        self.texture = get_cmap_texture(value, alpha)
         super().__init__(property_name=property_name)
 
     @property

@@ -94,6 +94,7 @@ class ImageGraphic(Graphic):
         interpolation: str = "nearest",
         cmap_interpolation: str = "linear",
         isolated_buffer: bool = True,
+        cmap_alpha: float = 1.0,
         **kwargs,
     ):
         """
@@ -126,6 +127,9 @@ class ImageGraphic(Graphic):
             set the data, useful if the data arrays are ready-only such as memmaps.
             If False, the input array is itself used as the buffer - useful if the
             array is large.
+
+        cmap_alpha: float, default 1.0
+            alpha value to use for the colormap texture
 
         kwargs:
             additional keyword arguments passed to :class:`.Graphic`
@@ -163,7 +167,7 @@ class ImageGraphic(Graphic):
             _map = None
         else:
             # use TextureMap for grayscale images
-            self._cmap = ImageCmap(cmap)
+            self._cmap = ImageCmap(cmap, alpha=cmap_alpha)
             self._cmap_interpolation = ImageCmapInterpolation(cmap_interpolation)
 
             _map = pygfx.TextureMap(
